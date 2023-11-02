@@ -1,18 +1,20 @@
-// Server Config happns here
+// Server configuration happens in server.js
+
 
 const express = require('express');
 
-// make a server instance
-
+// make a server instance 
 const app = express();
 
-
-app.get('/', (request, response) => {
-    response.json({
-        message:"Hello World"
-    });
+app.get("/", (request, response) => {
+	response.json({
+		message:"Hello world"
+	});
 });
 
+const CatRouter = require('./controllers/CatControllers');
+app.use('/cats', CatRouter);
+
 module.exports = {
-    app
+	app
 }

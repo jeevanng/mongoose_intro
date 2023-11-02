@@ -2,23 +2,24 @@ require('dotenv').config();
 
 const mongoose = require('mongoose');
 const { databaseConnect } = require('./database');
+const { Cat } = require('./models/CatModel');
 
 databaseConnect().then(async () => {
 
 	console.log("Creating seed data!");
 
-	const Cat = mongoose.model('Cat', {
-		name: String,
-		colour: String, 
-		breed: String,
-		favouritePlacesToSit: [String],
-		gender: String,
-		age: Number, // integer 
-		safeToPet: Boolean,
-		weightKg: Number, // float / decimal 
-		favouriteToys: [String],
-		photos: [String] // URL to some file storage like AWS S3, Google Cloud, Azure, whatever 
-	});
+	// const Cat = mongoose.model('Cat', {
+	// 	name: String,
+	// 	colour: String, 
+	// 	breed: String,
+	// 	favouritePlacesToSit: [String],
+	// 	gender: String,
+	// 	age: Number, // integer 
+	// 	safeToPet: Boolean,
+	// 	weightKg: Number, // float / decimal 
+	// 	favouriteToys: [String],
+	// 	photos: [String] // URL to some file storage like AWS S3, Google Cloud, Azure, whatever 
+	// });
 
 
 	let newLina = new Cat({
@@ -35,8 +36,11 @@ databaseConnect().then(async () => {
 	})
 
 	await newLina.save().then(() => {
-		console.log("Lina is in the DB!");
+		console.log(`${newLina.name} is in the DB`);
 	});
 
 
+}).then(async () => {
+	//imaginary dbDisconnect() 
+	// await dbDisconnect();
 })

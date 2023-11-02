@@ -45,8 +45,10 @@ router.get("/multiple/breed/:breedToFilterBy", async (request, response) => {
 
 
 // Create a new cat in the DB
+// localhost:3000/cats/
 router.post("/", async (request, response) => {
-	let result = null;
+    // Create is doing new cat and save (both in one)
+	let result = await Cat.create(request.body);
 
 	response.json({
 		cat: result

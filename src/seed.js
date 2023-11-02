@@ -29,7 +29,7 @@ databaseConnect().then(async () => {
 		gender: "female",
 		age: 2,
 		safeToPet: true,
-		weight: 5.5,
+		weightKg: 5.5,
 		favouriteToys: ["Zach's keyboard", "coffee mugs", "string"],
 		photos: ["http://google.com"]
 	})

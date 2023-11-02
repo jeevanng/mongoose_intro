@@ -7,6 +7,28 @@
 - Basic CRUD for notes in Mongoose and Express
 
 
+## Schema Template for MongoDB
+- Users 
+	- username
+	
+	- username
+	- password
+- Cats 
+	- all that cat data from Tuesday 
+	- name, breed, favouritePlaceToSit, etc 
+- Sightings 
+	- date
+	- place
+	- User.id
+	- Cat.id 
+
+
+
+
+
+
+## Extra Notes
+
 npm run seed
 node src/seed.js
 	database.js

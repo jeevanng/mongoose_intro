@@ -45,10 +45,20 @@ router.get("/multiple/breed/:breedToFilterBy", async (request, response) => {
 
 
 // Create a new cat in the DB
-// localhost:3000/cats/
+// POST localhost:3000/cats/
 router.post("/", async (request, response) => {
-    // Create is doing new cat and save (both in one)
-	let result = await Cat.create(request.body);
+
+	// Error handling via try-catch
+	// let result = null;
+	// try {
+	// 	result = await Cat.create(request.body);
+	// } catch (error) {
+	// 	result = error;
+	// }
+
+	// Error handling via Promise.catch()
+	let result = await Cat.create(request.body).catch(error => {return error});
+	
 
 	response.json({
 		cat: result
@@ -57,7 +67,7 @@ router.post("/", async (request, response) => {
 });
 
 // Update an existing cat in the DB.
-// Fiind one cat by its ID, and modify that cat. 
+// Find one cat by its ID, and modify that cat. 
 // Patch is for whatever properties are provided,
 // does not overwrite or remove any unmentioned properties of the cat 
 router.patch("/:id", async (request, response) => {

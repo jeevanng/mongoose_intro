@@ -1,5 +1,12 @@
 # feb23-t3w11-mongoose-intro
 
+## Saturday Goals
+
+- Implement error handling (basic way) on CRUD operations
+- Creating "Sightings" model and associating them with Users and Cats 
+- Doing CRUD for Sightings documents
+
+
 ## Thursday Goals
 
 - Start a lil cat-tracking backend app project
@@ -7,10 +14,7 @@
 - Basic CRUD for notes in Mongoose and Express
 
 
-## Schema Template for MongoDB
 - Users 
-	- username
-	
 	- username
 	- password
 - Cats 
@@ -23,11 +27,23 @@
 	- Cat.id 
 
 
+MongoDB with JSON Schema validation, not at all required or used specifically:
+<!-- db.createCollection("messages", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         // the required fields, no message without any of these fields
+         required: [ "text", "user", "likes"],
+         properties: {
+            text: {
+               bsonType: "string",
+               description: "must be a string and is required"
+            }, -->
 
 
 
 
-## Extra Notes
+## Extra notes 
 
 npm run seed
 node src/seed.js

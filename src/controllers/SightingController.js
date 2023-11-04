@@ -105,13 +105,14 @@ router.patch("/:id", async (request, response) => {
 // Find one cat by its ID,
 // and delete it from the DB.
 router.delete("/:id", async (request, response) => {
-	let result = null;
+	let result = await Sighting.findByIdAndDelete(request.params.id).populate('user cats', '-password');
 
 	response.json({
-		cat: result
+		deletedSighting: result
 	});
 
 });
+
 
 
 module.exports = router;

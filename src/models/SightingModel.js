@@ -26,6 +26,8 @@ const SightingSchema = new Schema({
 	]
 });
 
+
+
 const Sighting = mongoose.model('Sighting', SightingSchema);
 
 module.exports = {

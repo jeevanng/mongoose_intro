@@ -16,8 +16,14 @@ app.get("/", (request, response) => {
 	});
 });
 
+// So we can populate user in sighting controller
+const { User } = require('./models/UserModel');
+
 const CatRouter = require('./controllers/CatControllers');
 app.use('/cats', CatRouter);
+
+const SightingRouter = require('./controllers/SightingController');
+app.use('/sightings', SightingRouter);
 
 module.exports = {
 	app
